@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let episode of episodes" (click)="selectEpisode(episode)">
+          <tr *ngFor="let episode of episodes; let i = index" (click)="selectEpisode(episode, i)" [class.active]="i == selected_episode_row">
             <th>{{episode.episode}}</th>
             <td>{{episode.name}}</td>
             <td>{{episode.air_date}}</td>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="details-container col-sm-5">
-    <div class="content card  sticky-top">
+    <div class="content card text-white bg-dark sticky-top">
       <div class="title">
         <h2><img width="65" src="assets/images/interdimensional_goggles.png" /> Episode Details</h2>
       </div>
@@ -49,10 +49,41 @@
           <p>{{selected_episode.created}}</p>
         </div>
         <div class="characters">
-          <h5>Characters</h5>
-          <img *ngFor="let character of current_characters" width="90" src="{{character.image}}"/>
+          <img *ngFor="let character of episode_characters" (click)="showCharacterModal(character)" width="90" [src]="character.image" tooltip="{{character.name}}" placement="top" hide-delay="100"/>
         </div>
       </div>
     </div>
   </div>
 </section>
+<div *ngIf="show_modal" class="overlay" (click)="closeCharacterModal()">
+  <div class="character-modal card">
+    <img src="{{selected_character.image}}" class="card-img-top">
+    <div class="card-body">
+      <h4 class="card-title">{{selected_character.name}}</h4>
+      <div class="content-row">
+        <span>Status</span>
+        <p>{{selected_character.status}}</p>
+      </div>
+      <div class="content-row">
+        <span>Species</span>
+        <p>{{selected_character.species}}</p>
+      </div>
+      <div class="content-row">
+        <span>Type</span>
+        <p>{{selected_character.type | replaceEmpty}}</p>
+      </div>
+      <div class="content-row">
+        <span>Gender</span>
+        <p>{{selected_character.gender}}</p>
+      </div>
+      <div class="content-row">
+        <span>Origin</span>
+        <p>{{selected_character.origin.name}}</p>
+      </div>
+      <div class="content-row">
+        <span>Location</span>
+        <p>{{selected_character.location.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>

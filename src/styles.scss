@@ -9,4 +9,8 @@ body {
         max-width: initial;
         margin: initial;
     }
+
+    .tooltip {
+        z-index: 1040;
+    }
 }

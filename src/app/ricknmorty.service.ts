@@ -6,6 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { EpisodeResponse } from './episode-response';
 import { CharacterResponse } from './character-response';
+import { Character } from './character';
 import { MessageService } from './message.service';
 
 const httpOptions = {
@@ -32,12 +33,14 @@ export class RicknmortyService {
       );
   }
 
-  getCharacters (ids:number[]): Observable<CharacterResponse> {
-    const url = `${this.ricknmortyUrl}/character/`;
-    return this.http.get<CharacterResponse>(url)
+  getCharacters (ids:String[]): Observable<Character[]> {
+    const ids_concat:String = ids.reduce((a, b) => `${a},${b}`);
+    const url = `${this.ricknmortyUrl}/character/${ids_concat}`;
+    if (ids && ids.length > 0)
+    return this.http.get<Character[]>(url)
       .pipe(
         tap(_ => this.log('fetched characters')),
-        catchError(this.handleError<CharacterResponse>('getCharacters', new CharacterResponse))
+        catchError(this.handleError<Character[]>('getCharacters', []))
       );
   }
 
