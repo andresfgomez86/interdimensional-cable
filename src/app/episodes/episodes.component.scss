@@ -1,0 +1,107 @@
+.main-jumbotron {
+  background-image: url("../../assets/images/jumbotron.jpg");
+  padding: 4% 0;
+  margin-bottom: 15px;
+
+  .content {
+    background-color: #000000cc;
+    color: white;
+    text-align: center;
+    display: block;
+    width: 40%;
+    border-radius: 0 10px 10px 0;
+    padding: 25px;
+
+    h2,
+    h4 {
+      font-family: monospace;
+    }
+  }
+}
+
+.row {
+  padding: 0 4em;
+  margin-right: 0;
+  margin-left: 0;
+
+  .episodes-container {
+    padding: 30px;
+
+    h1 {
+      img {
+        vertical-align: top;
+        cursor: pointer;
+      }
+    }
+
+    .table {
+      margin-top: 20px;
+
+      .thead-dark th {
+        background-color: #000000d9;
+      }
+
+      tbody tr {
+        cursor: pointer;
+
+        &:hover {
+          background-color: #17a2b8;
+        }
+      }
+    }
+  }
+
+  .details-container {
+    .content {
+      top: 60px;
+      padding: 30px;
+      .title {
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: solid 0.5px #000000cc;
+      }
+
+      .no-selected {
+        margin-top: 2em;
+        text-align: center;
+        padding-top: 1em;
+        padding-bottom: 1em;
+
+        img {
+          margin-bottom: 20px;
+        }
+      }
+
+      .selected {
+        margin: 1em 0;
+        padding-top: 1em;
+        padding-bottom: 1em;
+
+        .content-row {
+          display: flex;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          -webkit-box-align: center;
+          align-items: center;
+          flex-wrap: nowrap;
+
+          span, p {
+            font-size: 0.9rem;
+            font-weight: 200;
+            text-align: right;
+            padding: 0px;
+            margin: 0px;
+          }
+
+          p {
+              font-family: monospace;
+          }
+        }
+
+        .characters {
+            margin-top: 10px;
+        }
+      }
+    }
+  }
+}
