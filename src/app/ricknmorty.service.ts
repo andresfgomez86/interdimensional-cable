@@ -23,7 +23,6 @@ export class RicknmortyService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  /** GET heroes from the server */
   getEpisodes (): Observable<EpisodeResponse> {
     const url = `${this.ricknmortyUrl}/episode/`;
     return this.http.get<EpisodeResponse>(url)
@@ -33,7 +32,7 @@ export class RicknmortyService {
       );
   }
 
-  getCharacters (ids:String[]): Observable<Character[]> {
+  findCharacters (ids:String[]): Observable<Character[]> {
     const ids_concat:String = ids.reduce((a, b) => `${a},${b}`);
     const url = `${this.ricknmortyUrl}/character/${ids_concat}`;
     if (ids && ids.length > 0)
@@ -41,6 +40,15 @@ export class RicknmortyService {
       .pipe(
         tap(_ => this.log('fetched characters')),
         catchError(this.handleError<Character[]>('getCharacters', []))
+      );
+  }
+
+  getCharacters (page:number): Observable<CharacterResponse> {
+    const url = `${this.ricknmortyUrl}/character/?page=${page}`;
+    return this.http.get<CharacterResponse>(url)
+      .pipe(
+        tap(_ => this.log('fetched characters')),
+        catchError(this.handleError<CharacterResponse>('getCharacters', new CharacterResponse))
       );
   }
 

@@ -10,13 +10,19 @@ import { AppComponent } from './app.component';
 import { EpisodesComponent } from './episodes/episodes.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ReplaceEmptyPipe } from './replace-empty.pipe';
+import { CharactersComponent } from './characters/characters.component';
+import { BannerComponent } from './banner/banner.component';
+import { LocationsComponent } from './locations/locations.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EpisodesComponent,
     MessagesComponent,
-    ReplaceEmptyPipe
+    ReplaceEmptyPipe,
+    CharactersComponent,
+    BannerComponent,
+    LocationsComponent
   ],
   imports: [
     BrowserModule,

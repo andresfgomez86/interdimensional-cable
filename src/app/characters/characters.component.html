@@ -1,0 +1,47 @@
+<app-banner></app-banner>
+<section class="characters-section">
+  <div class="container col-sm-12 card">
+    <h1><img width="65" src="assets/images/morty.png"/> Characters</h1>
+    <div class="row">
+      <div *ngFor="let character of characters" class="col-sm-2 char-container">
+        <div class="card">
+          <img src="{{character.image}}" class="card-img-top"/>
+          <div class="top-left">{{character.name}}</div>
+          <div class="card-body">
+            <div class="content-row">
+              <span>Status</span>
+              <p>{{character.status}}</p>
+            </div>
+            <div class="content-row">
+              <span>Species</span>
+              <p>{{character.species}}</p>
+            </div>
+            <div class="content-row">
+              <span>Type</span>
+              <p title="{{character.type}}">{{character.type | replaceEmpty}}</p>
+            </div>
+            <div class="content-row">
+              <span>Gender</span>
+              <p>{{character.gender}}</p>
+            </div>
+            <div class="content-row">
+              <span>Origin</span>
+              <p title="{{character.origin.name}}">{{character.origin.name}}</p>
+            </div>
+            <div class="content-row">
+              <span>Location</span>
+              <p title="{{character.location.name}}">{{character.location.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="show_more" class="col-sm-2 char-container" (click)="loadMore()">
+          <div class="card load-more">
+            <div class="card-body">
+              <h3>Load More!</h3>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>

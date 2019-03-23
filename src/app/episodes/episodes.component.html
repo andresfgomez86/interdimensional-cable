@@ -1,10 +1,4 @@
-<section class="main-jumbotron">
-  <div class="content">
-    <h1>Rick and Morty's</h1>
-    <h2>Interdimensional Cable</h2>
-    <h4>Explore the complete universe of this great show!</h4>
-  </div>
-</section>
+<app-banner></app-banner>
 <section class="row">
   <div class="episodes-container col-sm-7 card">
     <h1><img width="65" src="assets/images/cable_box.png" (click)="resetSelectedEpisode()" /> Episodes</h1>
@@ -18,7 +12,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let episode of episodes; let i = index" (click)="selectEpisode(episode, i)" [class.active]="i == selected_episode_row">
+          <tr *ngFor="let episode of episodes; let i = index" (click)="selectEpisode(episode, i)"
+            [class.active]="i == selected_episode_row">
             <th>{{episode.episode}}</th>
             <td>{{episode.name}}</td>
             <td>{{episode.air_date}}</td>
@@ -38,6 +33,12 @@
         <p>Please, click over one of the episodes in the list to display some details</p>
       </div>
       <div *ngIf="selected_episode" class="jumbotron selected">
+        <div *ngIf="show_loader" class="overlay">
+          <div class="loader">
+            <img width="100" src="assets/images/robot.gif" />
+            <h4>Loading...</h4>
+          </div>
+        </div>
         <h4>{{selected_episode.name}}</h4>
         <h6>{{selected_episode.episode}}</h6>
         <div class="content-row">
@@ -49,7 +50,8 @@
           <p>{{selected_episode.created}}</p>
         </div>
         <div class="characters">
-          <img *ngFor="let character of episode_characters" (click)="showCharacterModal(character)" width="90" [src]="character.image" tooltip="{{character.name}}" placement="top" hide-delay="100"/>
+          <img *ngFor="let character of episode_characters" (click)="showCharacterModal(character)" width="90"
+            [src]="character.image" tooltip="{{character.name}}" placement="top" hide-delay="100" />
         </div>
       </div>
     </div>
