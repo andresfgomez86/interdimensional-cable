@@ -1,0 +1,64 @@
+.locations-section {
+    padding: 0 4em;
+    margin-right: 0;
+    margin-left: 0;
+  
+    .container {
+      padding: 30px;
+  
+      h1 {
+        margin-bottom: 1em;
+      }
+    }
+  }
+  
+  .content-row {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  
+    span,
+    p {
+      font-size: 0.9rem;
+      font-weight: 200;
+      text-align: right;
+      padding: 0px;
+      margin: 0px;
+    }
+  
+    p {
+      font-family: monospace;
+    }
+  
+    span {
+      margin-right: 1em;
+    }
+  }
+  
+  .loc-container {
+    margin-bottom: 1em;
+    min-height: 5em;
+  
+    .load-more {
+      height: 100%;
+      cursor: pointer;
+      text-align: center;
+      background-color: #17a2b8;
+      border: white solid;
+      color: white;
+  
+      &:hover {
+        border: #17a2b8 solid;
+        background-color: white;
+        border: #17a2b8 solid;
+        color: black;
+      }
+    }
+  }
+  
