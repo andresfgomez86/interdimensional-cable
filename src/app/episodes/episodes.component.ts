@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Episode } from '../episode';
-import { Character } from './../character';
-import { RicknmortyService } from '../ricknmorty.service';
+import { Episode } from '../shared/models/episode';
+import { Character } from '../shared/models/character';
+import { RicknmortyService } from '../shared/services/ricknmorty.service';
 
 @Component({
   selector: 'app-episodes',
