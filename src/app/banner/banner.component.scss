@@ -1,11 +1,12 @@
+@import "../../variables.scss";
 .main-jumbotron {
   background-image: url("../../assets/images/jumbotron.jpg");
   padding: 4% 0;
   margin-bottom: 15px;
 
   .content {
-    background-color: #000000cc;
-    color: white;
+    background-color: $ic-transparent-black;
+    color: $ic-white;
     text-align: center;
     display: block;
     width: 40%;

@@ -1,3 +1,4 @@
+@import "../../variables.scss";
 .locations-section {
     padding: 0 4em;
     margin-right: 0;
@@ -49,15 +50,15 @@
       height: 100%;
       cursor: pointer;
       text-align: center;
-      background-color: #17a2b8;
-      border: white solid;
-      color: white;
+      background-color: $ic-blue;
+      border: $ic-white solid;
+      color: $ic-white;
   
       &:hover {
-        border: #17a2b8 solid;
-        background-color: white;
-        border: #17a2b8 solid;
-        color: black;
+        border: $ic-blue solid;
+        background-color: $ic-white;
+        border: $ic-blue solid;
+        color: $ic-black;
       }
     }
   }
