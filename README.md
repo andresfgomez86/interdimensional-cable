@@ -1,4 +1,8 @@
-# InterdimensionalCable
+# Interdimensional Cable
+
+Explore the complete universe of this great show!
+
+![alt text](https://pocketmortys.net/images/items/InterdimensionalCableBox.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
