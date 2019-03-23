@@ -1,3 +1,4 @@
+import { LocationResponse } from './location-response';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -49,6 +50,15 @@ export class RicknmortyService {
       .pipe(
         tap(_ => this.log('fetched characters')),
         catchError(this.handleError<CharacterResponse>('getCharacters', new CharacterResponse))
+      );
+  }
+
+  getLocations (page:number): Observable<LocationResponse> {
+    const url = `${this.ricknmortyUrl}/location/?page=${page}`;
+    return this.http.get<LocationResponse>(url)
+      .pipe(
+        tap(_ => this.log('fetched locations')),
+        catchError(this.handleError<LocationResponse>('getCharacters', new LocationResponse))
       );
   }
 

@@ -1,1 +1,30 @@
 <app-banner></app-banner>
+<section class="locations-section">
+  <div class="container col-sm-12 card">
+    <h1><img width="65" src="assets/images/microverse.png" /> Locations</h1>
+    <div class="row">
+      <div *ngFor="let location of locations" class="col-sm-3 loc-container">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{location.name}}</h5>
+            <div class="content-row">
+              <span>Type</span>
+              <p>{{location.type}}</p>
+            </div>
+            <div class="content-row">
+              <span>Dimension</span>
+              <p>{{location.dimension}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="show_more" class="col-sm-12 loc-container" (click)="loadMore()">
+        <div class="card load-more">
+          <div class="card-body">
+            <h3>Load More!</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
