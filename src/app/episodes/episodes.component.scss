@@ -1,24 +1,3 @@
-.main-jumbotron {
-  background-image: url("../../assets/images/jumbotron.jpg");
-  padding: 4% 0;
-  margin-bottom: 15px;
-
-  .content {
-    background-color: #000000cc;
-    color: white;
-    text-align: center;
-    display: block;
-    width: 40%;
-    border-radius: 0 10px 10px 0;
-    padding: 25px;
-
-    h2,
-    h4 {
-      font-family: monospace;
-    }
-  }
-}
-
 .row {
   padding: 0 4em;
   margin-right: 0;
@@ -81,6 +60,27 @@
 
       .selected {
         margin: 1em 0;
+        position: relative;
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0.9;
+          background: white;
+          text-align: center;
+          border-radius: 0.3rem;
+
+          .loader {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+          }
+        }
+
         .characters {
           margin-top: 10px;
           text-align: center;
@@ -117,10 +117,6 @@
     margin: 0px;
   }
 
-  span {
-    font-weight: bold;
-  }
-
   p {
     font-family: monospace;
   }
@@ -130,13 +126,13 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0; 
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1050; 
-  cursor: pointer; 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+  cursor: pointer;
 
   .character-modal {
     position: fixed;
@@ -147,6 +143,6 @@
     margin-top: 60px;
     min-height: 10em;
     width: 20%;
-    z-index: 1051; 
+    z-index: 1051;
   }
 }

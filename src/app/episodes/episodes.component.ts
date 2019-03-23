@@ -15,6 +15,7 @@ export class EpisodesComponent implements OnInit {
   episode_characters: Character[] = [];
   show_modal: boolean = false;
   selected_character: Character;
+  show_loader: boolean = true;
 
   constructor(private ricknmortyService: RicknmortyService) { }
 
@@ -28,6 +29,7 @@ export class EpisodesComponent implements OnInit {
   }
 
   selectEpisode(episode:Episode, row:number): void {
+    this.show_loader = true;
     this.selected_episode = episode;
     this.selected_episode_row = row;
     const character_ids:String[] = episode.characters.map(character => {
@@ -35,8 +37,11 @@ export class EpisodesComponent implements OnInit {
       const id:String = character_split[character_split.length - 1];
       return id;
     });
-    this.ricknmortyService.getCharacters(character_ids)
-    .subscribe(response => this.episode_characters = response);
+    this.ricknmortyService.findCharacters(character_ids)
+    .subscribe(response => {
+      this.episode_characters = response;
+      this.show_loader = false;
+    });
   }
 
   resetSelectedEpisode(): void {
