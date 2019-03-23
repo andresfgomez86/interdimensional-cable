@@ -1,3 +1,9 @@
+/**
+ * This is the model for the Location object
+ *
+ * @export
+ * @class Location
+ */
 export class Location {
     id: number;
     name: String;

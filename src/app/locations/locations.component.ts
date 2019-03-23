@@ -18,6 +18,12 @@ export class LocationsComponent implements OnInit {
     this.getLocations();
   }
 
+  /**
+   * This function updates the locations array to be displayed in the view
+   * Also udpates the "Load more" button status
+   *
+   * @memberof LocationsComponent
+   */
   getLocations(): void {
     this.ricknmortyService.getLocations(this.current_page)
       .subscribe(response => {
@@ -26,6 +32,11 @@ export class LocationsComponent implements OnInit {
       });
   }
 
+  /**
+   * This function is executed when the "Load more" button is clicked
+   *
+   * @memberof LocationsComponent
+   */
   loadMore(): void {
     this.current_page++;
     this.getLocations();

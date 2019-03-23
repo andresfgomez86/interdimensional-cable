@@ -1,3 +1,9 @@
+/**
+ * This is the model for the Character object
+ *
+ * @export
+ * @class Character
+ */
 export class Character {
     id: number;
     name: String;

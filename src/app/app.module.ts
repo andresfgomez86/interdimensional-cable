@@ -8,7 +8,6 @@ import { TooltipModule } from 'ng2-tooltip-directive';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EpisodesComponent } from './episodes/episodes.component';
-import { MessagesComponent } from './messages/messages.component';
 import { ReplaceEmptyPipe } from './shared/pipes/replace-empty.pipe';
 import { CharactersComponent } from './characters/characters.component';
 import { BannerComponent } from './banner/banner.component';
@@ -18,7 +17,6 @@ import { LocationsComponent } from './locations/locations.component';
   declarations: [
     AppComponent,
     EpisodesComponent,
-    MessagesComponent,
     ReplaceEmptyPipe,
     CharactersComponent,
     BannerComponent,

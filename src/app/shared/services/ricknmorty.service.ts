@@ -8,12 +8,17 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { EpisodeResponse } from '../models/episode-response';
 import { CharacterResponse } from '../models/character-response';
 import { Character } from '../models/character';
-import { MessageService } from './message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+/**
+ * Service responsible of the connection with the RickAndMortyAPI
+ *
+ * @export
+ * @class RicknmortyService
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -21,9 +26,14 @@ export class RicknmortyService {
   private ricknmortyUrl = 'https://rickandmortyapi.com/api';
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+    private http: HttpClient) { }
 
+  /**
+   *  This function gets all the available episodes from the API
+   *
+   * @returns {Observable<EpisodeResponse>} Observable with the endpoint reponse
+   * @memberof RicknmortyService
+   */
   getEpisodes (): Observable<EpisodeResponse> {
     const url = `${this.ricknmortyUrl}/episode/`;
     return this.http.get<EpisodeResponse>(url)
@@ -33,6 +43,13 @@ export class RicknmortyService {
       );
   }
 
+  /**
+   * This function gets a group of characters filtered by ids
+   *
+   * @param {String[]} ids - Characters id array
+   * @returns {Observable<Character[]>} - Observable with the character array
+   * @memberof RicknmortyService
+   */
   findCharacters (ids:String[]): Observable<Character[]> {
     const ids_concat:String = ids.reduce((a, b) => `${a},${b}`);
     const url = `${this.ricknmortyUrl}/character/${ids_concat}`;
@@ -44,6 +61,13 @@ export class RicknmortyService {
       );
   }
 
+  /**
+   * This function gets all the available characters filtered by page number
+   *
+   * @param {number} page - Page number
+   * @returns {Observable<CharacterResponse>} -Observable with the endpoint reponse
+   * @memberof RicknmortyService
+   */
   getCharacters (page:number): Observable<CharacterResponse> {
     const url = `${this.ricknmortyUrl}/character/?page=${page}`;
     return this.http.get<CharacterResponse>(url)
@@ -53,6 +77,13 @@ export class RicknmortyService {
       );
   }
 
+  /**
+   * This function gets all the available Locations filtered by page number
+   *
+   * @param {number} page - Page number
+   * @returns {Observable<LocationResponse>} -Observable with the endpoint reponse
+   * @memberof RicknmortyService
+   */
   getLocations (page:number): Observable<LocationResponse> {
     const url = `${this.ricknmortyUrl}/location/?page=${page}`;
     return this.http.get<LocationResponse>(url)
@@ -70,20 +101,17 @@ export class RicknmortyService {
      */
     private handleError<T> (operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {
-
-        // TODO: send the error to remote logging infrastructure
-        console.error(error); // log to console instead
-
-        // TODO: better job of transforming error for user consumption
+        console.error(error);
         this.log(`${operation} failed: ${error.message}`);
-
-        // Let the app keep running by returning an empty result.
         return of(result as T);
       };
     }
 
-    /** Log a HeroService message with the MessageService */
+    /**
+     * Logs a specific message in console
+     * @param message - Text of the specific message
+     */
     private log(message: string) {
-      this.messageService.add(`HeroService: ${message}`);
+      console.error("Rick and morty service:", message);
     }
 }
