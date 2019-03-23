@@ -1,0 +1,89 @@
+<section class="main-jumbotron">
+  <div class="content">
+    <h1>Rick and Morty's</h1>
+    <h2>Interdimensional Cable</h2>
+    <h4>Explore the complete universe of this great show!</h4>
+  </div>
+</section>
+<section class="row">
+  <div class="episodes-container col-sm-7 card">
+    <h1><img width="65" src="assets/images/cable_box.png" (click)="resetSelectedEpisode()" /> Episodes</h1>
+    <div class="episodes-table">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Air date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let episode of episodes; let i = index" (click)="selectEpisode(episode, i)" [class.active]="i == selected_episode_row">
+            <th>{{episode.episode}}</th>
+            <td>{{episode.name}}</td>
+            <td>{{episode.air_date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="details-container col-sm-5">
+    <div class="content card text-white bg-dark sticky-top">
+      <div class="title">
+        <h2><img width="65" src="assets/images/interdimensional_goggles.png" /> Episode Details</h2>
+      </div>
+      <div *ngIf="!selected_episode" class="jumbotron no-selected">
+        <img width="100" src="assets/images/morty-apples.png" />
+        <h4>No episode selected</h4>
+        <p>Please, click over one of the episodes in the list to display some details</p>
+      </div>
+      <div *ngIf="selected_episode" class="jumbotron selected">
+        <h4>{{selected_episode.name}}</h4>
+        <h6>{{selected_episode.episode}}</h6>
+        <div class="content-row">
+          <span>Air date</span>
+          <p>{{selected_episode.air_date}}</p>
+        </div>
+        <div class="content-row">
+          <span>Created</span>
+          <p>{{selected_episode.created}}</p>
+        </div>
+        <div class="characters">
+          <img *ngFor="let character of episode_characters" (click)="showCharacterModal(character)" width="90" [src]="character.image" tooltip="{{character.name}}" placement="top" hide-delay="100"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="show_modal" class="overlay" (click)="closeCharacterModal()">
+  <div class="character-modal card">
+    <img src="{{selected_character.image}}" class="card-img-top">
+    <div class="card-body">
+      <h4 class="card-title">{{selected_character.name}}</h4>
+      <div class="content-row">
+        <span>Status</span>
+        <p>{{selected_character.status}}</p>
+      </div>
+      <div class="content-row">
+        <span>Species</span>
+        <p>{{selected_character.species}}</p>
+      </div>
+      <div class="content-row">
+        <span>Type</span>
+        <p>{{selected_character.type | replaceEmpty}}</p>
+      </div>
+      <div class="content-row">
+        <span>Gender</span>
+        <p>{{selected_character.gender}}</p>
+      </div>
+      <div class="content-row">
+        <span>Origin</span>
+        <p>{{selected_character.origin.name}}</p>
+      </div>
+      <div class="content-row">
+        <span>Location</span>
+        <p>{{selected_character.location.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
