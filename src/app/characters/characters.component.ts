@@ -1,6 +1,6 @@
-import { Character } from './../character';
+import { Character } from '../shared/models/character';
 import { Component, OnInit } from '@angular/core';
-import { RicknmortyService } from '../ricknmorty.service';
+import { RicknmortyService } from '../shared/services/ricknmorty.service';
 
 @Component({
   selector: 'app-characters',

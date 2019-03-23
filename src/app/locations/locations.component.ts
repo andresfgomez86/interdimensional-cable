@@ -1,6 +1,6 @@
-import { Location } from './../location';
+import { Location } from '../shared/models/location';
 import { Component, OnInit } from '@angular/core';
-import { RicknmortyService } from '../ricknmorty.service';
+import { RicknmortyService } from '../shared/services/ricknmorty.service';
 
 @Component({
   selector: 'app-locations',

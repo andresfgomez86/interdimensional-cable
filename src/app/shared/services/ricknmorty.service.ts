@@ -1,13 +1,13 @@
-import { LocationResponse } from './location-response';
+import { LocationResponse } from '../models/location-response';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { EpisodeResponse } from './episode-response';
-import { CharacterResponse } from './character-response';
-import { Character } from './character';
+import { EpisodeResponse } from '../models/episode-response';
+import { CharacterResponse } from '../models/character-response';
+import { Character } from '../models/character';
 import { MessageService } from './message.service';
 
 const httpOptions = {
