@@ -1,3 +1,4 @@
+@import "../../variables.scss";
 .characters-section {
   padding: 0 4em;
   margin-right: 0;
@@ -48,8 +49,8 @@
   font-family: inherit;
   font-size: 1.2em;
   font-weight: bold;
-  color: white;
-  background-color: #000000b3;
+  color: $ic-white;
+  background-color: $ic-transparent-black-dark;
   width: 100%;
   padding: 0.5em;
 }
@@ -62,9 +63,9 @@
     height: 100%;
     cursor: pointer;
     text-align: center;
-    background-color: #17a2b8;
-    border: white solid;
-    color: white;
+    background-color: $ic-blue;
+    border: $ic-white solid;
+    color: $ic-white;
 
     h3 {
       position: absolute;
@@ -72,10 +73,10 @@
     }
 
     &:hover {
-      border: #17a2b8 solid;
-      background-color: white;
-      border: #17a2b8 solid;
-      color: black;
+      border: $ic-blue solid;
+      background-color: $ic-white;
+      border: $ic-blue solid;
+      color: $ic-black;
     }
   }
 }

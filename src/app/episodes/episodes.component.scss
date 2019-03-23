@@ -1,3 +1,4 @@
+@import "../../variables.scss";
 .row {
   padding: 0 4em;
   margin-right: 0;
@@ -17,7 +18,7 @@
       margin-top: 20px;
 
       .thead-dark th {
-        background-color: #000000d9;
+        background-color: $ic-grey-dark;
       }
 
       tbody {
@@ -26,7 +27,7 @@
         }
 
         .active {
-          background-color: #17a2b8;
+          background-color: $ic-blue;
         }
       }
     }
@@ -39,12 +40,12 @@
       .title {
         text-align: center;
         padding-bottom: 10px;
-        border-bottom: solid 0.5px #000000cc;
+        border-bottom: solid 0.5px $ic-transparent-black;
       }
 
       .jumbotron {
-        background-color: #7d7d7d;
-        color: black;
+        background-color: $ic-grey-light;
+        color: $ic-black;
         padding-top: 1em;
         padding-bottom: 1em;
       }
@@ -69,7 +70,7 @@
           width: 100%;
           height: 100%;
           opacity: 0.9;
-          background: white;
+          background: $ic-white;
           text-align: center;
           border-radius: 0.3rem;
 
@@ -90,7 +91,7 @@
             background-image: url("../../assets/images/default.jpeg");
             background-size: cover;
             border-radius: 20%;
-            border: solid 2px white;
+            border: solid 2px $ic-white;
             margin: 5px;
             cursor: pointer;
           }
@@ -130,7 +131,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $ic-overlay-black;
   z-index: 1050;
   cursor: pointer;
 

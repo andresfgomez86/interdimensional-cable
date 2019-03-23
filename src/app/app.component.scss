@@ -1,3 +1,4 @@
+@import "../variables.scss";
 ul {
   position: fixed;
   top: 0;
@@ -6,7 +7,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #000000cc;
+  background-color: $ic-transparent-black;
   z-index: 999;
 
   .top-brand {
@@ -39,24 +40,24 @@ li {
 
   &.home {
     font-weight: bold;
-    border-right: 1px solid #bbb;
+    border-right: 1px solid $ic-white;
     
     a {
-      color: #72ff00;
+      color: $ic-green;
     }
   }
 
   &.right {
     float: right;
     a {
-      color: #72ff00;
+      color: $ic-green;
       padding: 15px 16px;
     }
   }
 
   a {
     display: block;
-    color: white;
+    color: $ic-white;
     text-align: center;
     padding: 18px 16px;
     text-decoration: none;
@@ -67,18 +68,18 @@ li {
     }
 
     &:hover {
-      background-color: rgb(54, 54, 54);
+      background-color: $ic-grey;
     }
   }
 }
 
 .footer {
-  background-color: black;
+  background-color: $ic-black;
   padding: 30px 0;
   margin-top: 30px;
   text-align: center;
 
   a {
-    color: #72ff00;
+    color: $ic-green;
   }
 }
