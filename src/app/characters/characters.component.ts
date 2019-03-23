@@ -18,6 +18,12 @@ export class CharactersComponent implements OnInit {
     this.getCharacters();
   }
 
+  /**
+   * This function updates the character array to be displayed in the view
+   * Also udpates the "Load more" button status
+   *
+   * @memberof CharactersComponent
+   */
   getCharacters(): void {
     this.ricknmortyService.getCharacters(this.current_page)
       .subscribe(response => {
@@ -26,6 +32,11 @@ export class CharactersComponent implements OnInit {
       });
   }
 
+  /**
+   * This function is executed when the "Load more" button is clicked
+   *
+   * @memberof CharactersComponent
+   */
   loadMore(): void {
     this.current_page++;
     this.getCharacters();
